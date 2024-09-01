@@ -24,8 +24,8 @@
       "dom"
     ],
     "paths": {
-      "@components/*": ["./src/components/*"],
       "@config/*": ["./src/config/*"],
+      "@components/*": ["./src/components/*"],
     }
   },
   "angularCompilerOptions": {
