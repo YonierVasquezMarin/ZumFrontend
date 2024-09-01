@@ -24,8 +24,11 @@
       "dom"
     ],
     "paths": {
+      "@routes/*": ["./src/routes/*"],
       "@config/*": ["./src/config/*"],
-      "@components/*": ["./src/components/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@common-components/*": ["./src/components/common-components/*"],
+      "@specific-components/*": ["./src/components/specific-components/*"],
     }
   },
   "angularCompilerOptions": {
