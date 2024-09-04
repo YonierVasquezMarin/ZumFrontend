@@ -28,8 +28,8 @@
       "@routes/*": ["./src/routes/*"],
       "@config/*": ["./src/config/*"],
       "@screens/*": ["./src/screens/*"],
-      "@common-components/*": ["./src/components/common-components/*"],
-      "@specific-components/*": ["./src/components/specific-components/*"],
+      "@common-components/*": ["./src/components/common/*"],
+      "@specific-components/*": ["./src/components/specific/*"],
     }
   },
   "angularCompilerOptions": {
