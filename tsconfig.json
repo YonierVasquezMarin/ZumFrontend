@@ -24,6 +24,7 @@
       "dom"
     ],
     "paths": {
+      "@common/*": ["./src/common/*"],
       "@routes/*": ["./src/routes/*"],
       "@config/*": ["./src/config/*"],
       "@screens/*": ["./src/screens/*"],

@@ -1,0 +1,61 @@
+@import '../../../styles.scss';
+
+button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: $space-8 $space-16;
+    font-size: $font-16;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    width: 100%; 
+    box-sizing: border-box; 
+    border-radius: $space-8;
+  
+    &.default {
+      background-color: $primary-color;
+      color: $white;
+  
+      &:hover {
+        background-color: darken($primary-color, 10%);
+      }
+    }
+  
+    &.disabled {
+      background-color: $gray1;
+      color: $white;
+      cursor: not-allowed;
+  
+      .icon {
+        color: lighten($gray1, 20%);
+      }
+    }
+  
+    &.outline {
+      background-color: transparent;
+      color: $primary-color;
+      border: 2px solid $primary-color;
+  
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+  
+    .icon {
+      display: inline-block;
+      margin: 0 $space-8;
+    }
+  
+    .left-icon {
+      margin-right: $space-8;
+    }
+  
+    .right-icon {
+      margin-left: $space-8;
+    }
+  }
+  

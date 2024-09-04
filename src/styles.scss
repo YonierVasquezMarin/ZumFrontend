@@ -1,36 +1,13 @@
-:root {
-	/* Colors */
-    --gray1: #858585;
-	--white: #ffffff;
-	--black: #000000;
-	--primary-color: #4c81d6;
-	--secondary-color: #f0b711;
-
-	/* Spaces */
-	--space-8: 8px;
-	--space-16: 16px;
-	--space-24: 24px;
-	--space-32: 32px;
-	--space-40: 40px;
-	--space-48: 48px;
-	--space-56: 56px;
-	--space-64: 64px;
-	--space-72: 72px;
-	--space-80: 80px;
-
-	/* Fonts */
-	--font-12: 12px;
-	--font-14: 14px;
-	--font-16: 16px;
-	--font-18: 18px;
-	--font-20: 20px;
-	--font-24: 24px;
-	--font-32: 32px;
-	--font-40: 40px;
-}
+@import './variables.scss';
 
 * {
-    font-family: sans-serif;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+	font-family: 'Roboto', sans-serif;
 }
 
 .title1 {
@@ -41,4 +18,23 @@
 .label {
 	font-size: var(--font-16);
 	color: var(--gray1);
+}
+
+.error {
+    color: red;
+    font-size: $font-12;
+    margin-top: $space-8;
+}
+
+.input-group 
+input[type="email"],
+input[type="password"],
+input[type="text"] 
+:focus {
+    border-color: $primary-color;
+    outline: none;
+}
+
+.has-error input {
+    border-color: red;
 }
