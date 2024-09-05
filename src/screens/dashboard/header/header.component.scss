@@ -1,5 +1,7 @@
+@import 'styles.scss';
+
 main {
-	height: 40px;
+	height: $space-40;
 	width: 100%;
 	background-color: brown;
 	display: none;
