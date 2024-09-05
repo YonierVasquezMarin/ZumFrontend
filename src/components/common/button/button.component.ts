@@ -1,7 +1,7 @@
-import { IconName } from '@fortawesome/fontawesome-common-types'
-import { CommonModule } from '@angular/common'
-import { Component, Input } from '@angular/core'
 import { IconComponent } from '@common-components/icon/icon.component'
+import { IconName } from '@fortawesome/fontawesome-common-types'
+import { Component, Input } from '@angular/core'
+import { CommonModule } from '@angular/common'
 
 @Component({
 	selector: 'app-button',

@@ -1,0 +1,130 @@
+@import '../../../../styles.scss';
+
+body {
+	margin: 0;
+	font-family: 'Roboto', sans-serif;
+	background-color: #f4f4f4;
+}
+
+.login-container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	background-color: $white;
+}
+
+.login-form-side {
+	background-color: $white;
+	padding: $space-32;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+    align-items: center;
+	flex: 1;
+	max-width: 400px;
+}
+
+.login-form-side .logo-container{
+    display: none;
+}
+
+.title-container{
+    text-align: center;
+}
+#logo-mobile{
+    width: 200px;
+    margin-bottom: $space-32;
+}
+
+.login-form-side h1 {
+	margin-bottom: $space-16;
+}
+
+.login-form-side p {
+	color: $gray1;
+	margin-bottom: $space-32;
+}
+
+
+.input-group {
+	margin-bottom: $space-24;
+}
+
+.input-group label {
+	display: block;
+	margin-bottom: $space-8;
+	font-size: $font-16;
+	color: $gray1;
+}
+
+.input-group input {
+	width: 100%;
+	padding: $space-8;
+	font-size: $font-16;
+	border: 1px solid $gray1;
+	border-radius: 4px;
+	box-sizing: border-box;
+	transition: border-color 0.3s;
+}
+
+.checkbox-group {
+	display: flex;
+	align-items: center;
+	margin-bottom: $space-16;
+}
+
+.checkbox-group input[type='checkbox'] {
+	margin-right: $space-8;
+}
+
+.forgot-password {
+	text-align: right;
+	a {
+		color: $primary-color;
+		text-decoration: none;
+	}
+}
+
+.login-form-side app-button {
+	width: 100%;
+	margin-top: $space-16;
+}
+
+.show-password-checkbox {
+	display: flex;
+	align-items: center;
+	gap: $space-8;
+}
+
+.show-password-checkbox label {
+	margin: 0;
+}
+
+#show-password {
+	width: 14px;
+}
+
+.options-form {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: $space-16;
+	gap: $space-16;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+	.login-container {
+        background-color: rebeccapurple;
+	}
+
+	.login-form-side .logo-container {
+		display: flex;
+	}
+
+	.login-form-side {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+}

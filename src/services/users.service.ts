@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core'
-import { environment } from '../environments/environment.development'
+import { environment } from '@environments/environment.development'
 import { HttpClient } from '@angular/common/http'
-import { UserLoginDto } from '@common/types/user-login'
-import { ResponseBase } from '@common/types/response-base'
+import { UserLoginDTO } from '@dtos/users.dtos'
+import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
+import { ResponseBase } from '@type/response-base'
 
 @Injectable({
 	providedIn: 'root',
@@ -12,7 +12,7 @@ export class UsersService {
 	url = `${environment.apiUrl}/users`
 	constructor(private http: HttpClient) {}
 
-	login(data: UserLoginDto): Observable<ResponseBase<string>> {
+	login(data: UserLoginDTO): Observable<ResponseBase<string>> {
 		return this.http.post<ResponseBase<string>>(`${this.url}/login`, data)
 	}
 }

@@ -24,10 +24,13 @@
       "dom"
     ],
     "paths": {
-      "@common/*": ["./src/common/*"],
+      "@dtos/*": ["./src/dtos/*"],
+      "@type/*": ["./src/type/*"],
       "@routes/*": ["./src/routes/*"],
       "@config/*": ["./src/config/*"],
       "@screens/*": ["./src/screens/*"],
+      "@services/*": ["./src/services/*"],
+      "@environments/*": ["./src/environments/*"],
       "@common-components/*": ["./src/components/common/*"],
       "@specific-components/*": ["./src/components/specific/*"],
     }

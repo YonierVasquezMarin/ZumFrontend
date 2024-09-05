@@ -11,13 +11,13 @@ button {
 }
 
 .title1 {
-	font-size: var(--font-40);
-	color: var(--secondary-color);
+	font-size: $font-40;
+	color: $secondary-color;
 }
 
 .label {
-	font-size: var(--font-16);
-	color: var(--gray1);
+	font-size: $font-16;
+	color: $gray1;
 }
 
 .error {
