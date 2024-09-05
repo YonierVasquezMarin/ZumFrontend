@@ -12,8 +12,8 @@ import { IconComponent } from '@common-components/icon/icon.component'
 })
 export class ButtonComponent {
 	@Input() text: string = 'Button'
-	@Input() leftIcon: IconName | null = null
-	@Input() rightIcon: IconName | null = null
+	@Input() leftIcon!: IconName | IconName[]
+	@Input() rightIcon!: IconName | IconName[]
 	@Input() buttonClass: string = ''
 	@Input() disabled: boolean = false
 	@Input() type: 'default' | 'disabled' | 'outline' = 'default'
