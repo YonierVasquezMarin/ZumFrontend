@@ -1,9 +1,5 @@
 <button [ngClass]="[type, buttonClass]" [disabled]="disabled">
-    @if (leftIcon) {
-    <span class="icon left-icon" [ngClass]="leftIcon"></span>
-    }
-    <span class="button-text">{{ text }}</span>
-    @if (rightIcon) {
-    <span class="icon right-icon" [ngClass]="rightIcon"></span>
-    }
+	<app-icon *ngIf="leftIcon" [name]="leftIcon"></app-icon>
+	<span class="button-text">{{ text }}</span>
+	<app-icon *ngIf="rightIcon" [name]="rightIcon"></app-icon>
 </button>
