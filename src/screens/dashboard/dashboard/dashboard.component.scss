@@ -20,3 +20,18 @@ main {
 		grid-area: content;
 	}
 }
+
+@media screen and (min-width: 1000px) {
+	app-header {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	app-header {
+		display: flex;
+	}
+	app-side-bar {
+		display: none;
+	}
+}
