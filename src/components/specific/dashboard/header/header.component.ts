@@ -1,6 +1,6 @@
-import { SideBarComponent } from '@screens/dashboard/side-bar/side-bar.component'
+import { SideBarComponent } from '@specific-components/dashboard/side-bar/side-bar.component'
 import { IconComponent } from '@common-components/icon/icon.component'
-import { Component, ElementRef, HostListener } from '@angular/core'
+import { Component, HostListener } from '@angular/core'
 
 @Component({
 	selector: 'app-header',
@@ -11,8 +11,6 @@ import { Component, ElementRef, HostListener } from '@angular/core'
 })
 export class HeaderComponent {
 	sideBarIsOpen = false
-
-	constructor(private elementRef: ElementRef) {}
 
 	toggleSideBar() {
 		this.sideBarIsOpen = !this.sideBarIsOpen

@@ -1,5 +1,5 @@
-import { UserInfoComponent } from '@specific-components/dashboard/user-info/user-info.component'
-import { MenuListComponent } from '@specific-components/dashboard/menu-list/menu-list.component'
+import { UserInfoComponent } from '@specific-components/side-bar/user-info/user-info.component'
+import { MenuListComponent } from '@specific-components/side-bar/menu-list/menu-list.component'
 import { Component } from '@angular/core'
 
 @Component({
