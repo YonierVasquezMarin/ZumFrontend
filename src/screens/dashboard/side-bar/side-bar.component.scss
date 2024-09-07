@@ -7,9 +7,3 @@ main {
 	box-sizing: border-box;
 	background-color: $primary-color;
 }
-
-@media screen and (max-width: 1000px) {
-	main {
-		display: none;
-	}
-}

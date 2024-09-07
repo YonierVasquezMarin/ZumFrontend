@@ -2,29 +2,37 @@
 
 main {
 	width: 100%;
-	display: none;
+	display: flex;
 	padding: 24px;
 	height: $space-48;
 	position: relative;
 	align-items: center;
 	box-sizing: border-box;
 	box-shadow: 1px 10px 15px -3px rgba(0, 0, 0, 0.1);
-}
 
-.img-container {
-	left: 0;
-	width: 100%;
-	display: flex;
-	position: absolute;
-	justify-content: center;
-
-	img {
-		width: 80px;
+	app-icon {
+		position: absolute;
 	}
-}
 
-@media screen and (max-width: 1000px) {
-	main {
+	.img-container {
+		left: 0;
+		width: 100%;
 		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		img {
+			width: 80px;
+		}
 	}
+}
+
+.side-bar-area {
+	top: 0;
+	width: 100%;
+	display: none;
+	height: 100%;
+	overflow: hidden;
+	position: absolute;
+	background: #7e7e7e9e;
 }
