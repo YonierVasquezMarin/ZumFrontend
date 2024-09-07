@@ -1,0 +1,34 @@
+@import 'styles.scss';
+
+main {
+    gap: $space-16;
+    display: flex;
+    flex-direction: row;
+
+	.avatar {
+		width: 50px;
+		height: 50px;
+		display: flex;
+		color: white;
+		font-weight: bold;
+		align-items: center;
+		font-size: $space-32;
+		border-radius: $space-8;
+		justify-content: center;
+		background-color: $secondary-color;
+	}
+
+    .container-name-rol {
+        display: flex;
+        flex-direction: column;
+        gap: $space-8;
+    }
+
+	.name {
+        align-self: center;
+	}
+
+	.rol {
+        align-self: start;
+	}
+}
