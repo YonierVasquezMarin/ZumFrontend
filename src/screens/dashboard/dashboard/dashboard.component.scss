@@ -16,6 +16,7 @@ main {
 	}
 
 	& > aside {
+		overflow: auto;
 		grid-area: content;
 	}
 }
