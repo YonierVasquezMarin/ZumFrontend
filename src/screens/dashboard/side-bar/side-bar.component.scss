@@ -1,8 +1,15 @@
 @import 'styles.scss';
 
 main {
-    width: 280px;
-    height: 100%;
-    background-color: $primary-color;
-    padding: $space-16
+	width: 280px;
+	height: 100%;
+	padding: $space-16;
+	box-sizing: border-box;
+	background-color: $primary-color;
+}
+
+@media screen and (max-width: 1000px) {
+	main {
+		display: none;
+	}
 }
