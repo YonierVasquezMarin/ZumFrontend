@@ -11,11 +11,7 @@
             [ngClass]="{'has-error': loginForm.get('email')?.invalid && loginForm.get('email')?.touched}">
             <label for="email">Correo Electrónico</label>
             <input type="email" id="email" formControlName="email" placeholder="example@gmail.com">
-            <div *ngIf="loginForm.get('email')?.invalid && loginForm.get('email')?.touched">
-                <small class="error" *ngIf="loginForm.get('email')?.errors?.['required']">El correo es
-                    requerido.</small>
-                <small class="error" *ngIf="loginForm.get('email')?.errors?.['email']">El correo no es válido.</small>
-            </div>
+            <app-validation-message [control]="getControl('email')" />
         </div>
 
         <div class="input-group"
@@ -23,13 +19,7 @@
             <label for="password">Contraseña</label>
             <input [type]="hidePassword ? 'text' : 'password'" id="password" formControlName="password"
                 placeholder="contraseña" appShowPassword>
-            <div *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
-                <small class="error" *ngIf="loginForm.get('password')?.errors?.['required']">La contraseña es
-                    requerida.</small>
-                <small class="error" *ngIf="loginForm.get('password')?.errors?.['minlength']">La contraseña debe tener
-                    al
-                    menos 6 caracteres.</small>
-            </div>
+            <app-validation-message [control]="getControl('password')" />
             <div class="options-form">
                 <div class="show-password-checkbox">
                     <input type="checkbox" id="show-password" (click)="showPassword()">
@@ -40,6 +30,6 @@
                 </div>
             </div>
         </div>
-        <app-button [text]="'Iniciar sesión'" [type]="'default'" />
+        <app-button [text]="'Iniciar sesión'" [type]="'default'"  (click)="login()"/>
     </form>
 </section>

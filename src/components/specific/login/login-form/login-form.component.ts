@@ -6,18 +6,21 @@ import { ResponseBase } from '@type/response-base'
 import { Component, OnInit } from '@angular/core'
 import { UserLoginDTO } from '@dtos/users.dtos'
 import { CommonModule } from '@angular/common'
+import { Router } from '@angular/router'
 import {
+	AbstractControl,
 	FormBuilder,
 	FormControl,
 	FormGroup,
 	ReactiveFormsModule,
 	Validators,
 } from '@angular/forms'
+import { ValidationMessageComponent } from '@common-components/validation-message/validation-message.component'
 
 @Component({
 	selector: 'app-login-form',
 	standalone: true,
-	imports: [CommonModule, ReactiveFormsModule, ButtonComponent],
+	imports: [CommonModule, ReactiveFormsModule, ButtonComponent, ValidationMessageComponent],
 	templateUrl: './login-form.component.html',
 	styleUrl: './login-form.component.scss',
 })
@@ -29,6 +32,7 @@ export class LoginFormComponent implements OnInit {
 		private usersService: UsersService,
 		private storageService: StorageService,
 		private formBuilder: FormBuilder,
+		private router: Router,
 	) {}
 
 	ngOnInit(): void {
@@ -43,6 +47,8 @@ export class LoginFormComponent implements OnInit {
 	}
 
 	login() {
+		this.router.navigateByUrl('/dashboard')
+
 		if (this.loginForm.invalid) {
 			this.loginForm.markAllAsTouched()
 			return
@@ -71,5 +77,9 @@ export class LoginFormComponent implements OnInit {
 
 	showPassword(): void {
 		this.hidePassword = !this.hidePassword
+	}
+
+	getControl(name: string) {
+		return this.loginForm.get(name) as AbstractControl
 	}
 }
