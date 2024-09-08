@@ -1,0 +1,7 @@
+@import 'styles.scss';
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: $space-16;
+}
