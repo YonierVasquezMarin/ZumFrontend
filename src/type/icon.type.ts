@@ -1,3 +1,5 @@
 import { IconName } from '@fortawesome/fontawesome-common-types'
 
-export type IconType = IconName | IconName[] | [IconName, 'spin-pulse']
+type IconNameType = IconName | 'spin-pulse'
+
+export type IconType = IconNameType | IconNameType[]
