@@ -1,0 +1,29 @@
+@import 'styles.scss';
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+
+	.row {
+		display: flex;
+		gap: 8px;
+		margin-bottom: 16px;
+
+		.label {
+			font-weight: bold;
+			color: $secondary-color;
+		}
+
+		.value {
+			color: $gray1;
+		}
+	}
+}
+
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}

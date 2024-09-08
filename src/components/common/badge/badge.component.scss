@@ -1,0 +1,39 @@
+@import 'styles.scss';
+
+.badge {
+  color: $white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  width: fit-content;
+  font-weight: 500;
+
+    &.primary {
+        background-color: $primary-color;
+    }
+    &.secondary {
+        background-color: $secondary-color;
+    }
+    &.success {
+        background-color: $success-color;
+    }
+
+    &.warning {
+        background-color: $warning-color;
+    }
+
+    &.danger {
+        background-color: $danger-color;
+    }
+
+    &.info {
+        background-color: $info-color;
+    }
+
+    &.light {
+        background-color: $light-color;
+    }
+
+    &.dark {
+        background-color: $dark-color;
+    }
+}

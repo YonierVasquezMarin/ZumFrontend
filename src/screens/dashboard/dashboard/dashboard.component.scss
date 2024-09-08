@@ -6,6 +6,7 @@ main {
 		'header header'
 		'sidebar content';
 	height: 100vh;
+	overflow: hidden;
 
 	& > app-header {
 		grid-area: header;
