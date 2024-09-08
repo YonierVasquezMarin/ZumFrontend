@@ -1,7 +1,7 @@
 import { IconComponent } from '@common-components/icon/icon.component'
-import { IconName } from '@fortawesome/fontawesome-common-types'
-import { Component, Input } from '@angular/core'
 import { CommonModule, NgStyle } from '@angular/common'
+import { Component, Input } from '@angular/core'
+import { IconType } from '@type/icon.type'
 
 @Component({
 	selector: 'app-button',
@@ -12,8 +12,8 @@ import { CommonModule, NgStyle } from '@angular/common'
 })
 export class ButtonComponent {
 	@Input() text: string = ''
-	@Input() leftIcon!: IconName | IconName[]
-	@Input() rightIcon!: IconName | IconName[]
+	@Input() leftIcon!: IconType
+	@Input() rightIcon!: IconType
 	@Input() buttonClass: string = ''
 	@Input() disabled: boolean = false
 	@Input() type: 'default' | 'disabled' | 'outline' = 'default'
