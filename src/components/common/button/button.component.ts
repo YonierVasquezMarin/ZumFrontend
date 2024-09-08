@@ -11,10 +11,11 @@ import { CommonModule } from '@angular/common'
 	styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
-	@Input() text: string = 'Button'
+	@Input() text: string = ''
 	@Input() leftIcon!: IconName | IconName[]
 	@Input() rightIcon!: IconName | IconName[]
 	@Input() buttonClass: string = ''
 	@Input() disabled: boolean = false
 	@Input() type: 'default' | 'disabled' | 'outline' = 'default'
+	 @Input() tooltip: string = ''
 }

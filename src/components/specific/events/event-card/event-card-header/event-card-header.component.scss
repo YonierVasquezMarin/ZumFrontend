@@ -1,0 +1,44 @@
+@import 'styles.scss';
+
+header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        'event-number container-info container-info app-button';
+    gap: 24px;
+
+    .container-info{
+        display: flex;
+        align-items: start;
+        gap: 16px;
+    }
+
+    & > app-button {
+        grid-area: app-button;
+    }
+
+    & > .event-number {
+        grid-area: event-number;
+    }
+
+    & > .container-info {
+        grid-area: container-info;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        grid-template-areas:
+            'event-number  app-button'
+            'container-info container-info';
+        gap: 16px;
+
+        app-button {
+            justify-self: end;
+        }
+
+        .container-info{
+            justify-content: space-between;
+        }
+    }
+}

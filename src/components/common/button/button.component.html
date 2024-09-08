@@ -1,5 +1,6 @@
-<button [ngClass]="[type, buttonClass]" [disabled]="disabled">
+<button [ngClass]="[type, buttonClass]" [disabled]="disabled" [attr.title]="text ? '' : tooltip">
 	<app-icon *ngIf="leftIcon" [name]="leftIcon" />
 	<span>{{ text }}</span>
 	<app-icon *ngIf="rightIcon" [name]="rightIcon" />
+	<div *ngIf="!text && tooltip" class="tooltip">{{ tooltip }}</div> 
 </button>
