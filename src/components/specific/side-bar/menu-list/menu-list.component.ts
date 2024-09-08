@@ -1,6 +1,7 @@
 import { MenuItemType } from '@type/menu-item.type'
-import { Component } from '@angular/core'
+import { AfterViewInit, Component } from '@angular/core'
 import { ButtonComponent } from '@common-components/button/button.component'
+import { Router } from '@angular/router'
 
 @Component({
 	selector: 'app-menu-list',
@@ -9,7 +10,9 @@ import { ButtonComponent } from '@common-components/button/button.component'
 	templateUrl: './menu-list.component.html',
 	styleUrl: './menu-list.component.scss',
 })
-export class MenuListComponent {
+export class MenuListComponent implements AfterViewInit {
+	constructor(private router: Router) {}
+
 	menuItems: MenuItemType[] = [
 		{
 			name: 'Eventos',
@@ -48,6 +51,14 @@ export class MenuListComponent {
 			route: '/reports',
 		},
 	]
+
+	ngAfterViewInit() {
+		this.navigateToFirstItem()
+	}
+
+	navigateToFirstItem() {
+		this.router.navigate(['/dashboard'+this.menuItems[0].route])
+	}
 
 	logout() {
 		console.log('logout')
