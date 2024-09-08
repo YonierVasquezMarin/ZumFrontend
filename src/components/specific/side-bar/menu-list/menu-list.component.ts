@@ -82,8 +82,4 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 	logout() {
 		console.log('logout')
 	}
-
-	toggleMenu() {
-		console.log('toggleMenu')
-	}
 }
