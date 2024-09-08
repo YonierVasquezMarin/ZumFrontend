@@ -35,4 +35,11 @@ main {
 	overflow: hidden;
 	position: absolute;
 	background: #7e7e7e9e;
+	transition: all 1s ease-in-out;
+
+	app-side-bar {
+		height: 100%;
+		position: absolute;
+		transition: left 0.2s ease-in-out;
+	}
 }

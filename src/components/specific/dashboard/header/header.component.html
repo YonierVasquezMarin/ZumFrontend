@@ -7,6 +7,6 @@
 </main>
 
 <!-- Side bar -->
-<section class="side-bar-area" [style.display]="sideBarIsOpen ? 'block' : 'none'">
-	<app-side-bar />
+<section class="side-bar-area" [ngStyle]="backgroundStyles">
+	<app-side-bar [ngStyle]="sideBarStyles" />
 </section>
