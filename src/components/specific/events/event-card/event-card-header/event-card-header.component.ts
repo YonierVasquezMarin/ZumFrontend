@@ -2,6 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { BadgeComponent } from '@common-components/badge/badge.component';
 import { ButtonComponent } from '@common-components/button/button.component';
+import { EventResponseDto } from '@dtos/events.dtos';
 import { StatusBadgeType } from '@type/status-badge.type';
 
 @Component({
@@ -12,9 +13,7 @@ import { StatusBadgeType } from '@type/status-badge.type';
   styleUrl: './event-card-header.component.scss'
 })
 export class EventCardHeaderComponent {
-  @Input({required: true}) assignedBudget!:number
-  @Input({required: true}) status!: number;
-  @Input({required: true}) number!: number;
+ @Input({required: true}) event!: EventResponseDto;
 
 
 
@@ -40,15 +39,15 @@ export class EventCardHeaderComponent {
   }
 
   get statusType() {
-    return this.statusColorByStatus[this.status];
+    return this.statusColorByStatus[this.event.status];
   }
 
   get statusName() {
-    return this.statusNameByStatus[this.status];
+    return this.statusNameByStatus[this.event.status];
   }
 
   get numberEvent(){
-    return `N° ${this.number}`;
+    return `N° ${this.event.eventNumber}`;
   }
 
 }

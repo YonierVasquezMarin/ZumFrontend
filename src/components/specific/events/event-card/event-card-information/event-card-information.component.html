@@ -6,11 +6,11 @@
         </div>
         <div class="row company-info">
             <span class="label">Empresa</span>
-            <span class="value">Fomag</span>
+            <span class="value">{{ event.companyName }}</span>
         </div>
         <div class="row operator-info">
             <span class="label">Operador:</span>
-            <span class="value">VTC</span>
+            <span class="value">{{ event.operatorName }}</span>
         </div>
     </section>
     <section class="ubication-date">
@@ -19,26 +19,26 @@
             <span class="value">{{event.city}}</span>
         </div>
         <div class="row date-init-info">
-            <span class="label">Fecha Inicio:</span>
+            <span class="label">Inicia:</span>
             <span class="value">{{event.startDate | date:'d \'de\' MMMM \' \' y' }}</span>
         </div>
         <div class="row date-create-info">
-            <span class="label">Fecha Creación:</span>
+            <span class="label">Creado:</span>
             <span class="value">{{ event.endDate | date:'d \'de\' MMMM \' \' y'}}</span>
         </div>
     </section>
     <section class="ubication-date">
         <div class="row ubication-info">
-            <span class="label">Departamento:</span>
-            <span class="value">{{ event.department }}</span>
+          <span class="label">Departamento:</span>
+          <span class="value">{{ event.department }}</span>
         </div>
         <div class="row date-init-info">
-            <span class="label">Hora Inicio:</span>
-            <span class="value">{{ getFormattedDate(event.startDate, event.startTime) | date:'hh:mm:a' }}</span>
+          <span class="label">Hora Inicio:</span>
+          <span class="value">{{ getFormattedDate(event.startDate.toString(), event.startTime) | date:'hh:mm a' }}</span>
         </div>
         <div class="row date-create-info">
-            <span class="label">Hora Creación:</span>
-            <span class="value">{{event.createdAt | date:'hh:mm:a' }}</span>
+          <span class="label">Hora Creación:</span>
+          <span class="value">{{ event.createdAt | date:'hh:mm a' }}</span>
         </div>
-    </section>
+      </section>      
 </main>

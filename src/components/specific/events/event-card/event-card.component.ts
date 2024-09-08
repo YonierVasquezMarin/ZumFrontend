@@ -3,10 +3,11 @@ import { Component, Input } from '@angular/core';
 import { EventCardHeaderComponent } from '@specific-components/events/event-card/event-card-header/event-card-header.component';
 import { EventCardInformationComponent } from '@specific-components/events/event-card/event-card-information/event-card-information.component';
 import { EventResponseDto } from '@dtos/events.dtos';
+import { ButtonComponent } from "../../../common/button/button.component";
 @Component({
   selector: 'app-event-card',
   standalone: true,
-  imports: [ CommonModule, EventCardHeaderComponent, EventCardInformationComponent],
+  imports: [CommonModule, EventCardHeaderComponent, EventCardInformationComponent, ButtonComponent],
   templateUrl: './event-card.component.html',
   styleUrl: './event-card.component.scss'
 })

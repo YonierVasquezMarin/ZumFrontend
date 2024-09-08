@@ -1,0 +1,57 @@
+@import 'styles.scss';
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $space-24;
+    margin: 20px 24px;
+    border-radius: 0px 0px 8px 8px;
+    padding: 8px 16px;
+    
+    .pages-container{
+        display: flex;
+        gap: $space-8;
+        align-items: center;
+        font-weight: 500;
+
+        .page{
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: $gray1;
+            background: gainsboro;
+
+           
+
+            &.active{
+                color: $white;
+                background: $primary-color;
+            }
+        }
+
+       
+    }
+  
+    button {
+      padding: 5px 10px;
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+  
+      &:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+    }
+  
+    .page-info {
+      font-size: 1rem;
+    }
+  }
+  

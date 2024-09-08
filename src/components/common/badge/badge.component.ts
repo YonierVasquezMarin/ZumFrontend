@@ -10,6 +10,6 @@ import { StatusBadgeType } from '@type/status-badge.type';
   styleUrl: './badge.component.scss'
 })
 export class BadgeComponent {
-  @Input() text: string | null = 'Badge'; //
+  @Input() text: string | null = 'Badge'; 
   @Input() type: StatusBadgeType = 'primary'; 
 }

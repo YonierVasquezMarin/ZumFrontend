@@ -1,34 +1,53 @@
 @import 'styles.scss';
-
 main {
-    border: solid 1px $gray1;
+    border: solid 1px $gray2;
     border-radius: 8px;
     margin: 16px 24px;
     padding: 8px 16px;
+    background: $gray3;
 
-    h2{
-        color: $primary-color;
-        font-size: 1.2rem;
-        margin-bottom: 16px;
-        margin-top: 16px;
-    }
-    .show-more-container{
+    .show-more-container {
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
     }
 
-    span{
+    h2 {
+        color: $primary-color;
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+    }
+
+    span {
         color: $gray1;
         font-size: 1rem;
-        cursor: pointer; 
+        cursor: pointer;
         color: $secondary-color;
-       
-        &:hover{
+
+        &:hover {
             text-decoration: underline;
             color: darken($secondary-color, 10%);
         }
     }
+
+    .event-card-information-container {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out, padding 0.3s ease-in-out;
+        padding: 0; /* Asegura que no haya padding cuando está cerrado */
+    }
+
+    /* Cuando se muestre la información */
+    .show {
+        max-height: 500px; /* Ajusta este valor dependiendo de la altura del contenido */
+        padding: 16px 0; /* Agrega el padding cuando está expandido */
+    }
+}
+
+app-event-card-information {
+    transition: left 1s ease-in-out;
 }
 

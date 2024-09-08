@@ -1,0 +1,28 @@
+<main *ngIf="totalPages > 1" class="pagination-container">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">
+      &laquo; Anterior
+    </button>
+  
+    <div class="pages-container">
+      <span class="page" *ngIf="showThreePointsAtStart" (click)="changePage(1)">1</span>
+      <span class="page" *ngIf="showThreePointsAtStart">...</span>
+  
+      <span 
+        *ngFor="let page of pagesToShow" 
+        class="page" 
+        (click)="changePage(page)" 
+        [class.active]="currentPage === page">
+        {{ page }}
+      </span>
+  
+      <span class="page" *ngIf="showThreePointsAtEnd">...</span>
+      <span class="page"  *ngIf="showLastPage"  (click)="changePage(totalPages)">
+        {{ totalPages }}
+      </span>
+    </div>
+
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">
+      Siguiente &raquo;
+    </button>
+  </main>
+  

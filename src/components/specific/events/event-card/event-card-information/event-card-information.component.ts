@@ -12,8 +12,11 @@ import { EventResponseDto } from '@dtos/events.dtos';
 export class EventCardInformationComponent {
   @Input({required: true}) event!: EventResponseDto;
 
-  getFormattedDate(date:Date, time: string): Date {
-      const completeDate = new Date(date + 'T' + time);
-      return completeDate;
+  getFormattedDate(dateString: string, timeString: string): Date {
+    const date = new Date(dateString);
+    const [hours, minutes, seconds] = timeString.split(':').map(Number);
+    date.setHours(hours, minutes, seconds);
+    return date;
   }
+  
 }

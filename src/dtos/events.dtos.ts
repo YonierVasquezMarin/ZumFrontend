@@ -1,21 +1,27 @@
 export interface EventResponseDto {
-    eventId: string;
-    eventName: string;
-    eventNumber: number;
-    contractId: string;
-    contractName: string;
-    description: string;
-    objective: string;
-    createdAt: Date;     
-    startDate: Date;    
-    startTime: string;    
-    endDate: Date;        
-    endTime: string;      
-    country: string;
-    department: string;
-    city: string;
-    assignedBudget: number;
-    spentBudget: number;
-    status: number;      
+     eventId: string;
+     eventName: string;
+     eventNumber: number;
+     description: string;
+     objective: string;
+     startDate: Date;
+     startTime: string;
+     endDate: Date;
+     endTime: string; 
+     country: string;
+     department: string;
+     city: string;
+     assignedBudget: number;
+     spentBudget?: number; 
+     status: number;
+     createdAt: Date;
+     contractId: string;
+     contractName: string;
+     companyId: string;
+     companyName: string;
+     companyAcronym: string;
+     operatorId: string;
+     operatorName: string;  
+     operatorAcronym: string;
   }
   

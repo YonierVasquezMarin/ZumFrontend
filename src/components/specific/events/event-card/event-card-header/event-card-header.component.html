@@ -2,7 +2,9 @@
     <app-badge class="event-number" [text]="numberEvent" type="dark" />
     <div class="container-info">
         <app-badge [text]="statusName" [type]="statusType" />
-        <app-badge [text]="assignedBudget | currency" type="info" />
+        <app-badge [text]="event.companyAcronym" type="info" />
+        <app-badge [text]="event.operatorAcronym" type="info" />
+        <app-badge [text]="event.assignedBudget | currency" type="info" />
     </div>
     <app-button tooltip="Opciones" leftIcon="sliders" />
 </header>
