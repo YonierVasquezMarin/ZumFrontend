@@ -53,7 +53,7 @@ export class LoginFormComponent implements OnInit {
 			this.loginForm.markAllAsTouched()
 			return
 		}
-		var credentials: UserLoginDTO = { ...this.loginForm.value }
+		let credentials: UserLoginDTO = { ...this.loginForm.value }
 		this.usersService.login(credentials).subscribe({
 			next: (response) => this.manageResponseLogin(response),
 			error: (error) => this.manageErrorLogin(error),
