@@ -1,1 +1,4 @@
-<i [ngClass]="iconClasses" [ngStyle]="{ 'font-size': size + 'px', color: color }"></i>
+<section class="container">
+	<span class="bubble" *ngIf="bubble != undefined">{{ bubble }}</span>
+	<i [ngClass]="iconClasses" [ngStyle]="{ 'font-size': size + 'px', color: color }"></i>
+</section>
