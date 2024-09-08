@@ -5,7 +5,7 @@
 	[style.justifyContent]="align"
 >
 	<app-icon *ngIf="leftIcon" [name]="leftIcon" />
-	<span>{{ text }}</span>
+	<span *ngIf="text">{{ text }}</span>
 	<app-icon *ngIf="rightIcon" [name]="rightIcon" />
 	<div *ngIf="!text && tooltip" class="tooltip">{{ tooltip }}</div>
 </button>
