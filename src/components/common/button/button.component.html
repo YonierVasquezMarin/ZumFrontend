@@ -1,11 +1,11 @@
 <button
-	[ngClass]="[type, buttonClass]"
+	[ngClass]="[type, buttonClasses]"
 	[disabled]="disabled"
 	[attr.title]="text ? '' : tooltip"
 	[style.justifyContent]="align"
 >
-	<app-icon *ngIf="leftIcon" [name]="leftIcon" />
+	<app-icon *ngIf="leftIcon" [name]="leftIcon" [bubble]="leftBubble" />
 	<span *ngIf="text">{{ text }}</span>
-	<app-icon *ngIf="rightIcon" [name]="rightIcon" />
+	<app-icon *ngIf="rightIcon" [name]="rightIcon" [bubble]="rightBubble" />
 	<div *ngIf="!text && tooltip" class="tooltip">{{ tooltip }}</div>
 </button>

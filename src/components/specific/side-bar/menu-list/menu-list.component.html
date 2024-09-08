@@ -1,5 +1,22 @@
-<main>
-	@for (item of menuItems; track $index) {
-	<app-button [text]="item.name" [leftIcon]="item.icon" [align]="'left'" />
-	}
+<main class="container">
+	<section class="menu-list main-options">
+		@for (item of menuItems; track $index) {
+		<app-button
+			[text]="item.name"
+			[leftIcon]="item.icon"
+			[align]="'left'"
+			[leftBubble]="item.bubble"
+			[btnActive]="item.active"
+		/>
+		}
+	</section>
+
+	<section class="menu-list">
+		<app-button
+			[text]="'Logout'"
+			[align]="'left'"
+			[leftIcon]="'right-from-bracket'"
+			(click)="logout()"
+		/>
+	</section>
 </main>

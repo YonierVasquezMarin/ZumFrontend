@@ -1,0 +1,20 @@
+.container {
+    position: relative;
+
+    .bubble {
+        left: 9px;
+        top: -2px;
+        height: 14px;
+        display: flex;
+        color: white;
+        min-width: 8px;
+        font-size: 12px;
+        border-radius: 8px;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: red;
+        box-sizing: content-box;
+        padding: 0px 3px 0px 3px;
+    }
+}
