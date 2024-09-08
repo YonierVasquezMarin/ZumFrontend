@@ -1,5 +1,10 @@
 <main>
 	@for (item of menuItems; track $index) {
-	<app-button [text]="item.name" [leftIcon]="item.icon" [align]="'left'" />
+	<app-button
+		[text]="item.name"
+		[leftIcon]="item.icon"
+		[align]="'left'"
+		[leftBubble]="item.bubble"
+	/>
 	}
 </main>

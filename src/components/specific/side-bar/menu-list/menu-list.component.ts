@@ -20,6 +20,7 @@ export class MenuListComponent {
 			name: 'Notificaciones',
 			icon: 'bell',
 			route: '/notifications',
+			bubble: 26,
 		}
 	]
 }

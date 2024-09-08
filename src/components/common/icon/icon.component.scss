@@ -4,16 +4,17 @@
     .bubble {
         left: 9px;
         top: -2px;
-        height: 11px;
-        color: white;
+        height: 14px;
         display: flex;
-        font-size: 8px;
-        min-width: 6px;
-        padding: 0px 2px;
+        color: white;
+        min-width: 8px;
+        font-size: 12px;
         border-radius: 8px;
         position: absolute;
         align-items: center;
         justify-content: center;
         background-color: red;
+        box-sizing: content-box;
+        padding: 0px 3px 0px 3px;
     }
 }

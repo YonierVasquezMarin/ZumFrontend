@@ -1,1 +1,1 @@
-export type BubbleType = number | string
+export type BubbleType = number | string | undefined
