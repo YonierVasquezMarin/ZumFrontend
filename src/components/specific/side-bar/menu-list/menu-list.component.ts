@@ -22,6 +22,31 @@ export class MenuListComponent {
 			route: '/notifications',
 			bubble: 26,
 		},
+		{
+			name: 'Menús',
+			icon: 'table-cells-large',
+			route: '/menus',
+		},
+		{
+			name: 'Usuarios',
+			icon: 'users',
+			route: '/users',
+		},
+		{
+			name: 'Contratos',
+			icon: 'file-signature',
+			route: '/contracts',
+		},
+		{
+			name: 'Empresas',
+			icon: 'building',
+			route: '/companies',
+		},
+		{
+			name: 'Reportes',
+			icon: 'chart-column',
+			route: '/reports',
+		},
 	]
 
 	logout() {
