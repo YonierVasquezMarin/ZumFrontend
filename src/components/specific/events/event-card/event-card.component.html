@@ -1,9 +1,8 @@
 <main>
-    <app-event-card-header />
-    <h2>REEMBOLSO ORLANDO RAFAEL CASTRO REYES PARA CUMPLIR CITA DE CIRUGIA DE RECONSTRUCCION DE COLOSTOMIA 30 DE AGOSTO
-        DE 2024, HORA 07:00 AM</h2>
+    <app-event-card-header [assignedBudget]="event.assignedBudget" [status]="event.status" [number]="event.eventNumber" />
+    <h2>{{event.eventName}}</h2>
         <div class="show-more-container">
             <span (click)="toggleShowOption()">{{textButtonShowOption}}</span>
         </div>
-    <app-event-card-information *ngIf="showOption" />
+    <app-event-card-information *ngIf="showOption" [event]="event" />
 </main>

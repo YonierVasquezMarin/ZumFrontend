@@ -1,0 +1,14 @@
+@import 'styles.scss';
+
+main{
+    height: 50px;
+    margin: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $info-color;
+    border-radius: 8px;
+    color: $info-color;
+    background: transparent;
+}
+

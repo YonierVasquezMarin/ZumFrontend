@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, input } from '@angular/core';
+import { StatusBadgeType } from '@type/status-badge.type';
 
 @Component({
   selector: 'app-badge',
@@ -9,6 +10,6 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './badge.component.scss'
 })
 export class BadgeComponent {
-  @Input() text: string = 'Badge'; //
-  @Input() type: 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark' = 'primary'; 
+  @Input() text: string | null = 'Badge'; //
+  @Input() type: StatusBadgeType = 'primary'; 
 }

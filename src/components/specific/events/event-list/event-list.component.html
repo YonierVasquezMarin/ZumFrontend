@@ -1,9 +1,7 @@
 <main>
     <section>
-        <app-event-card />
-        <app-event-card />
-        <app-event-card />
-        <app-event-card />
-        <app-event-card />
+        @for(event of events; track event.eventId){
+            <app-event-card [event]="event" />
+        }
     </section>
 </main>

@@ -2,7 +2,7 @@
     <section class="participant">
         <div class="row contract-info">
             <span class="label">Contracto:</span>
-            <span class="value">CTN-001</span>
+            <span class="value">{{event.contractName}}</span>
         </div>
         <div class="row company-info">
             <span class="label">Empresa</span>
@@ -16,29 +16,29 @@
     <section class="ubication-date">
         <div class="row ubication-info">
             <span class="label">Ciudad:</span>
-            <span class="value">Manizales</span>
+            <span class="value">{{event.city}}</span>
         </div>
         <div class="row date-init-info">
             <span class="label">Fecha Inicio:</span>
-            <span class="value">12 de Julio 2024</span>
+            <span class="value">{{event.startDate | date:'d \'de\' MMMM \' \' y' }}</span>
         </div>
         <div class="row date-create-info">
             <span class="label">Fecha Creación:</span>
-            <span class="value">10 de Julio 2024</span>
+            <span class="value">{{ event.endDate | date:'d \'de\' MMMM \' \' y'}}</span>
         </div>
     </section>
     <section class="ubication-date">
         <div class="row ubication-info">
             <span class="label">Departamento:</span>
-            <span class="value">Caldas</span>
+            <span class="value">{{ event.department }}</span>
         </div>
         <div class="row date-init-info">
             <span class="label">Hora Inicio:</span>
-            <span class="value">10:00 PM</span>
+            <span class="value">{{ getFormattedDate(event.startDate, event.startTime) | date:'hh:mm:a' }}</span>
         </div>
         <div class="row date-create-info">
             <span class="label">Hora Creación:</span>
-            <span class="value">08:00 AM</span>
+            <span class="value">{{event.createdAt | date:'hh:mm:a' }}</span>
         </div>
     </section>
 </main>

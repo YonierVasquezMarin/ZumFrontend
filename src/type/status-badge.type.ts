@@ -1,0 +1,1 @@
+export type StatusBadgeType = 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info' | 'light' | 'dark'; 
