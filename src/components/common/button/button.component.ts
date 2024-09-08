@@ -20,6 +20,13 @@ export class ButtonComponent {
 	@Input() leftBubble!: BubbleType
 	@Input() rightBubble!: BubbleType
 	@Input() disabled: boolean = false
+	@Input() btnActive?: boolean
 	@Input() align: 'left' | 'center' | 'right' = 'center'
 	@Input() type: 'default' | 'disabled' | 'outline' = 'default'
+
+	get buttonClasses() {
+		let classes = this.buttonClass
+		if (this.btnActive) classes += ' button-active'
+		return classes
+	}
 }

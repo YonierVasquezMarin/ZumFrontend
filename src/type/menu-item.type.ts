@@ -6,4 +6,5 @@ export interface MenuItemType {
     name: string
     route: string
     bubble?: BubbleType
+    active?: boolean
 }

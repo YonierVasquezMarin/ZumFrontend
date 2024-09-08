@@ -1,7 +1,8 @@
 import { MenuItemType } from '@type/menu-item.type'
-import { AfterViewInit, Component } from '@angular/core'
+import { AfterViewInit, Component, OnInit } from '@angular/core'
 import { ButtonComponent } from '@common-components/button/button.component'
-import { Router } from '@angular/router'
+import { NavigationEnd, Router } from '@angular/router'
+import { filter } from 'rxjs'
 
 @Component({
 	selector: 'app-menu-list',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router'
 	templateUrl: './menu-list.component.html',
 	styleUrl: './menu-list.component.scss',
 })
-export class MenuListComponent implements AfterViewInit {
+export class MenuListComponent implements OnInit, AfterViewInit {
 	constructor(private router: Router) {}
 
 	menuItems: MenuItemType[] = [
@@ -52,12 +53,30 @@ export class MenuListComponent implements AfterViewInit {
 		},
 	]
 
+	ngOnInit() {
+		this.updateActiveMenuItem()
+		this.defineItemActive()
+	}
+
+	defineItemActive() {
+		this.router.events.pipe(filter((event) => event instanceof NavigationEnd)).subscribe(() => {
+			this.updateActiveMenuItem()
+		})
+	}
+
 	ngAfterViewInit() {
 		this.navigateToFirstItem()
 	}
 
 	navigateToFirstItem() {
-		this.router.navigate(['/dashboard'+this.menuItems[0].route])
+		this.router.navigate(['/dashboard' + this.menuItems[0].route])
+	}
+
+	updateActiveMenuItem() {
+		const currentRoute = this.router.url
+		this.menuItems.forEach((item) => {
+			item.active = '/dashboard' + item.route === currentRoute
+		})
 	}
 
 	logout() {
