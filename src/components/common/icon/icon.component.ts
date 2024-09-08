@@ -1,6 +1,6 @@
 import { NgClass, NgStyle } from '@angular/common'
 import { Component, Input } from '@angular/core'
-import { IconName } from '@fortawesome/fontawesome-common-types'
+import { IconType } from '@type/icon.type'
 
 @Component({
 	selector: 'app-icon',
@@ -10,7 +10,7 @@ import { IconName } from '@fortawesome/fontawesome-common-types'
 	styleUrl: './icon.component.scss',
 })
 export class IconComponent {
-	@Input({ required: true }) name!: IconName | IconName[]
+	@Input({ required: true }) name!: IconType
 	@Input() size: number = 16
 	@Input() color: string = 'white'
 

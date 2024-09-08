@@ -1,1 +1,5 @@
-<p>menu-list works!</p>
+<main>
+	@for (item of menuItems; track $index) {
+	<app-button [text]="item.name" [leftIcon]="item.icon" [align]="'left'" />
+	}
+</main>
