@@ -1,0 +1,12 @@
+<!-- Header -->
+<main>
+	<app-icon name="bars" color="black" (click)="toggleSideBar()" />
+	<section class="img-container">
+		<img src="images/zum-logo-blue.png" alt="ZUM Logo blue" />
+	</section>
+</main>
+
+<!-- Side bar -->
+<section class="side-bar-area" [style.display]="sideBarIsOpen ? 'block' : 'none'">
+	<app-side-bar />
+</section>

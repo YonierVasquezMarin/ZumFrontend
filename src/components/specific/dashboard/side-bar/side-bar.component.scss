@@ -1,0 +1,9 @@
+@import 'styles.scss';
+
+main {
+	width: 280px;
+	height: 100%;
+	padding: $space-16;
+	box-sizing: border-box;
+	background-color: $primary-color;
+}

@@ -1,5 +1,5 @@
-import { SideBarComponent } from '@screens/dashboard/side-bar/side-bar.component'
-import { HeaderComponent } from '@screens/dashboard/header/header.component'
+import { SideBarComponent } from '@specific-components/dashboard/side-bar/side-bar.component'
+import { HeaderComponent } from '@specific-components/dashboard/header/header.component'
 import { RouterOutlet } from '@angular/router'
 import { Component } from '@angular/core'
 
