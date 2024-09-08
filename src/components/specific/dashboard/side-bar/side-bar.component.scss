@@ -1,9 +1,17 @@
 @import 'styles.scss';
 
 main {
+	gap: $space-8;
 	width: 280px;
 	height: 100%;
+	display: flex;
 	padding: $space-16;
+	padding-right: 0;
 	box-sizing: border-box;
+	flex-direction: column;
 	background-color: $primary-color;
+
+	app-menu-list {
+		flex: 1;
+	}
 }

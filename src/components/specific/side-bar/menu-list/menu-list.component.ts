@@ -21,6 +21,14 @@ export class MenuListComponent {
 			icon: 'bell',
 			route: '/notifications',
 			bubble: 26,
-		}
+		},
 	]
+
+	logout() {
+		console.log('logout')
+	}
+
+	toggleMenu() {
+		console.log('toggleMenu')
+	}
 }

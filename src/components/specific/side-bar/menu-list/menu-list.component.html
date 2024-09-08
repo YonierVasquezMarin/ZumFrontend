@@ -1,10 +1,27 @@
-<main>
-	@for (item of menuItems; track $index) {
-	<app-button
-		[text]="item.name"
-		[leftIcon]="item.icon"
-		[align]="'left'"
-		[leftBubble]="item.bubble"
-	/>
-	}
+<main class="container">
+	<section class="menu-list main-options">
+		@for (item of menuItems; track $index) {
+		<app-button
+			[text]="item.name"
+			[leftIcon]="item.icon"
+			[align]="'left'"
+			[leftBubble]="item.bubble"
+		/>
+		}
+	</section>
+
+	<section class="menu-list">
+		<app-button
+			[text]="'Logout'"
+			[align]="'left'"
+			[leftIcon]="'right-from-bracket'"
+			(click)="logout()"
+		/>
+		<app-button
+			[text]="'Colapsar menú'"
+			[align]="'left'"
+			[leftIcon]="'angles-left'"
+			(click)="toggleMenu()"
+		/>
+	</section>
 </main>
