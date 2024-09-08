@@ -1,12 +1,12 @@
 import { IconComponent } from '@common-components/icon/icon.component'
 import { IconName } from '@fortawesome/fontawesome-common-types'
 import { Component, Input } from '@angular/core'
-import { CommonModule } from '@angular/common'
+import { CommonModule, NgStyle } from '@angular/common'
 
 @Component({
 	selector: 'app-button',
 	standalone: true,
-	imports: [CommonModule, IconComponent],
+	imports: [CommonModule, IconComponent, NgStyle],
 	templateUrl: './button.component.html',
 	styleUrl: './button.component.scss',
 })
@@ -17,5 +17,6 @@ export class ButtonComponent {
 	@Input() buttonClass: string = ''
 	@Input() disabled: boolean = false
 	@Input() type: 'default' | 'disabled' | 'outline' = 'default'
-	 @Input() tooltip: string = ''
+	@Input() tooltip: string = ''
+	@Input() align: 'left' | 'center' | 'right' = 'center'
 }
