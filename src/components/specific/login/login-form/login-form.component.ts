@@ -47,8 +47,6 @@ export class LoginFormComponent implements OnInit {
 	}
 
 	login() {
-		this.router.navigateByUrl('/dashboard')
-
 		if (this.loginForm.invalid) {
 			this.loginForm.markAllAsTouched()
 			return
@@ -61,9 +59,11 @@ export class LoginFormComponent implements OnInit {
 	}
 
 	manageResponseLogin(response: ResponseBase<string>) {
+	
 		if (response && response.statusCode === HttpStatusCode.Ok) {
 			this.storageService.saveToken(response.data)
-			console.log('Login success')
+
+			this.navegateToDashboard()
 		}
 	}
 
@@ -81,5 +81,9 @@ export class LoginFormComponent implements OnInit {
 
 	getControl(name: string) {
 		return this.loginForm.get(name) as AbstractControl
+	}
+
+	navegateToDashboard() {
+		this.router.navigate(['/dashboard'])
 	}
 }

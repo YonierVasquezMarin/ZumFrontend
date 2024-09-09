@@ -17,6 +17,14 @@ export class StorageService {
       sessionStorage.removeItem('token');
     }
 
+    saveUser(user: any) {
+      sessionStorage.setItem('user', JSON.stringify(user));
+    }
+
+    getUser() {
+      return JSON.parse(sessionStorage.getItem('user')!);
+    }
+    
     saveItem(key: string, value: any) {
       sessionStorage.setItem(key, JSON.stringify(value));
     }

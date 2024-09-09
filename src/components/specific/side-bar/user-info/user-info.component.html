@@ -1,9 +1,9 @@
 <main>
-	<section class="avatar">S</section>
+	<section class="avatar">{{firstletterInName}}</section>
 	<section class="container-name-rol">
 		<span class="name">
-			Sociedad de television del norte del eje cafetero. Unión pacifico.
+			{{ user.name }}
 		</span>
-		<span class="rol">Super admin</span>
+		<span class="rol">{{user.role}}</span>
 	</section>
 </main>

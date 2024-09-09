@@ -12,7 +12,7 @@ export interface EventResponseDto {
      department: string;
      city: string;
      assignedBudget: number;
-     spentBudget?: number; 
+     spentBudget: number; 
      status: number;
      createdAt: Date;
      contractId: string;

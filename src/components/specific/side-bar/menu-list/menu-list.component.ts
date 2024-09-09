@@ -3,6 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core'
 import { ButtonComponent } from '@common-components/button/button.component'
 import { NavigationEnd, Router } from '@angular/router'
 import { filter } from 'rxjs'
+import { UsersService } from '@services/users.service'
 
 @Component({
 	selector: 'app-menu-list',
@@ -12,7 +13,9 @@ import { filter } from 'rxjs'
 	styleUrl: './menu-list.component.scss',
 })
 export class MenuListComponent implements OnInit, AfterViewInit {
-	constructor(private router: Router) {}
+	constructor(
+		private router: Router,
+		private usersService: UsersService) {}
 
 	menuItems: MenuItemType[] = [
 		{
@@ -80,6 +83,6 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 	}
 
 	logout() {
-		console.log('logout')
+		this.usersService.logout()
 	}
 }

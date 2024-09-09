@@ -1,11 +1,11 @@
-import { DatePipe } from '@angular/common';
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { EventResponseDto } from '@dtos/events.dtos';
 
 @Component({
   selector: 'app-event-card-information',
   standalone: true,
-  imports: [DatePipe, ],
+  imports: [DatePipe, CurrencyPipe],
   templateUrl: './event-card-information.component.html',
   styleUrl: './event-card-information.component.scss'
 })
@@ -17,6 +17,10 @@ export class EventCardInformationComponent {
     const [hours, minutes, seconds] = timeString.split(':').map(Number);
     date.setHours(hours, minutes, seconds);
     return date;
+  }
+
+  getEnableBugeget(event: EventResponseDto): number {
+    return event.assignedBudget - event.spentBudget;
   }
   
 }

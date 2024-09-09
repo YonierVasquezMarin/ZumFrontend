@@ -18,7 +18,7 @@ export class EventsComponent implements OnInit {
   totalPages: number = 0;
   filters : PaginatedRequestDto<{}> = {
     page: 1,
-    pageSize: 4,
+    pageSize: 6,
     values: {}
   };
 
