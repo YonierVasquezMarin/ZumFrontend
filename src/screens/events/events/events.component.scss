@@ -1,11 +1,9 @@
 @import 'styles.scss';
 
 main{
-    margin: 16px 8px;
-
     .header {
+        gap: 16px;
         display: flex;
-        margin-left: 24px;
         align-items: center;
         justify-content: space-between;
     }
