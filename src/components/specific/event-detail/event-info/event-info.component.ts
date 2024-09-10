@@ -1,4 +1,4 @@
-import { SlideChecker } from '@classes/slide-checker.interface'
+import { SlideChecker } from '@interfaces/slide-checker.interface'
 import { Component } from '@angular/core'
 
 @Component({

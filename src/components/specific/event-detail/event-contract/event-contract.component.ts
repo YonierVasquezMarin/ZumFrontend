@@ -1,5 +1,5 @@
+import { SlideChecker } from '@interfaces/slide-checker.interface'
 import { Component } from '@angular/core'
-import { SlideChecker } from '@classes/slide-checker.interface'
 
 @Component({
 	selector: 'app-event-contract',
