@@ -1,5 +1,11 @@
 <main>
-    <h1 class="title1">Eventos</h1>
+    <!-- Header -->
+    <header class="header">
+        <h1 class="title1">Eventos</h1>
+        <app-button [text]="'Crear evento'" [rightIcon]="'plus'"/>
+    </header>
+
+    <!-- Events list -->
     <section class="list-events-container">
         <app-empty-list-message elementName="eventos" *ngIf="eventListEmpty()" />
 

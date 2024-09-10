@@ -3,8 +3,11 @@
 main{
     margin: 16px 8px;
 
-    h1{
+    .header {
+        display: flex;
         margin-left: 24px;
+        align-items: center;
+        justify-content: space-between;
     }
 
 }
