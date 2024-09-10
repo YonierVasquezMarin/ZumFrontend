@@ -66,11 +66,15 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 	}
 
 	ngAfterViewInit() {
-		this.navigateToFirstItem()
+		this.checkAndNavigateToFirstItem()
 	}
 
-	navigateToFirstItem() {
-		this.router.navigate(['/dashboard/' + this.menuItems[0].route])
+	checkAndNavigateToFirstItem() {
+		const currentRoute = this.router.url
+
+		if (currentRoute === '/dashboard') {
+			this.router.navigate(['/dashboard/' + this.menuItems[0].route])
+		}
 	}
 
 	updateActiveMenuItem() {
