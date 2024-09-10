@@ -59,6 +59,6 @@ export class EventsComponent implements OnInit {
 	}
 
 	redirectToCreateEvent() {
-		this.router.navigate(['../create-event'], { relativeTo: this.route })
+		this.router.navigate(['create-event'], { relativeTo: this.route })
 	}
 }

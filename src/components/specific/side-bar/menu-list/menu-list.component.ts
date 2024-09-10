@@ -80,7 +80,7 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 	updateActiveMenuItem() {
 		const currentRoute = this.router.url
 		this.menuItems.forEach((item) => {
-			item.active = '/dashboard/' + item.route === currentRoute
+			item.active = currentRoute.includes(item.route)
 		})
 	}
 

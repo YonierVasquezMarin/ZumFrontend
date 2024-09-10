@@ -8,7 +8,7 @@ export const eventsRoutes: Routes = [
 		component: EventsComponent,
 	},
 	{
-		path: 'create-event',
+		path: 'events/create-event',
 		component: EventDetailComponent,
 	},
 ]
