@@ -13,46 +13,44 @@ import { UsersService } from '@services/users.service'
 	styleUrl: './menu-list.component.scss',
 })
 export class MenuListComponent implements OnInit, AfterViewInit {
-	constructor(
-		private router: Router,
-		private usersService: UsersService) {}
+	constructor(private router: Router, private usersService: UsersService) {}
 
 	menuItems: MenuItemType[] = [
 		{
 			name: 'Eventos',
 			icon: 'calendar-alt',
-			route: '/events',
+			route: 'events',
 		},
 		{
 			name: 'Notificaciones',
 			icon: 'bell',
-			route: '/notifications',
+			route: 'notifications',
 			bubble: 26,
 		},
 		{
 			name: 'Menús',
 			icon: 'table-cells-large',
-			route: '/menus',
+			route: 'menus',
 		},
 		{
 			name: 'Usuarios',
 			icon: 'users',
-			route: '/users',
+			route: 'users',
 		},
 		{
 			name: 'Contratos',
 			icon: 'file-signature',
-			route: '/contracts',
+			route: 'contracts',
 		},
 		{
 			name: 'Empresas',
 			icon: 'building',
-			route: '/companies',
+			route: 'companies',
 		},
 		{
 			name: 'Reportes',
 			icon: 'chart-column',
-			route: '/reports',
+			route: 'reports',
 		},
 	]
 
@@ -72,13 +70,13 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 	}
 
 	navigateToFirstItem() {
-		this.router.navigate(['/dashboard' + this.menuItems[0].route])
+		this.router.navigate(['/dashboard/' + this.menuItems[0].route])
 	}
 
 	updateActiveMenuItem() {
 		const currentRoute = this.router.url
 		this.menuItems.forEach((item) => {
-			item.active = '/dashboard' + item.route === currentRoute
+			item.active = '/dashboard/' + item.route === currentRoute
 		})
 	}
 
