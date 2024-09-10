@@ -8,11 +8,6 @@ export const dashboardRoutes: Routes = [
 		component: DashboardComponent,
 		children: [
 			{
-				path: '',
-				redirectTo: 'events',
-				pathMatch: 'full',
-			},
-			{
 				path: 'events',
 				component: EventsComponent,
 			},
