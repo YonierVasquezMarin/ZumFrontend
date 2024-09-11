@@ -1,14 +1,17 @@
+import { NgIf } from '@angular/common'
 import { Component, Input, ViewChild, ViewContainerRef, OnInit, Type } from '@angular/core'
 import { SlideSheet } from '@interfaces/slide-sheet.interface'
 
 @Component({
 	standalone: true,
 	selector: 'app-slides',
+	imports: [NgIf],
 	templateUrl: './slides.component.html',
 	styleUrls: ['./slides.component.scss'],
 })
 export class SlidesComponent implements OnInit {
-	@Input() slides: Type<SlideSheet>[] = []
+	@Input({ required: true }) slides: Type<SlideSheet>[] = []
+	@Input({ required: true }) creationMode: boolean = false
 	@ViewChild('slideContainer', { read: ViewContainerRef, static: true })
 	slideContainer!: ViewContainerRef
 
