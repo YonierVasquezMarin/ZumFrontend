@@ -1,0 +1,8 @@
+<div class="slides-container">
+	<h2>Slide {{ currentSlideIndex + 1 }} de {{ slides.length }}</h2>
+	<ng-container #slideContainer></ng-container>
+	<button (click)="prevSlide()" [disabled]="currentSlideIndex === 0">Anterior</button>
+	<button (click)="nextSlide()" [disabled]="currentSlideIndex === slides.length - 1">
+		Siguiente
+	</button>
+</div>
