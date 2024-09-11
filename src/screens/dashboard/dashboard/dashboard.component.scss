@@ -1,3 +1,5 @@
+@import 'styles.scss';
+
 main {
 	display: grid;
 	grid-template-columns: auto 1fr;
@@ -19,6 +21,7 @@ main {
 	& > aside {
 		overflow: auto;
 		grid-area: content;
+		padding: $space-16 $space-24;
 	}
 }
 

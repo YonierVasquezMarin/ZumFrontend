@@ -1,11 +1,21 @@
 <main>
-    <h1 class="title1">Eventos</h1>
-    <section class="list-events-container">
-        <app-empty-list-message elementName="eventos" *ngIf="eventListEmpty()" />
+	<!-- Header -->
+	<header class="header">
+		<h1 class="title1">Eventos</h1>
+		<app-button [text]="'Crear evento'" [rightIcon]="'plus'" (click)="redirectToCreateEvent()" />
+	</header>
 
-        <app-event-list *ngIf="!eventListEmpty()" [events]="events" />
+	<!-- Events list -->
+	<section class="list-events-container">
+		<app-empty-list-message elementName="eventos" *ngIf="eventListEmpty()" />
 
-        <app-pagination *ngIf="totalPages > 1" [totalPages]="totalPages" [currentPage]="filters.page"
-            (pageChange)="onPageChange($event)" />
-    </section>
+		<app-event-list *ngIf="!eventListEmpty()" [events]="events" />
+
+		<app-pagination
+			*ngIf="totalPages > 1"
+			[totalPages]="totalPages"
+			[currentPage]="filters.page"
+			(pageChange)="onPageChange($event)"
+		/>
+	</section>
 </main>

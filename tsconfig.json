@@ -30,6 +30,7 @@
       "@config/*": ["./src/config/*"],
       "@screens/*": ["./src/screens/*"],
       "@services/*": ["./src/services/*"],
+      "@interfaces/*": ["./src/interfaces/*"],
       "@environments/*": ["./src/environments/*"],
       "@common-components/*": ["./src/components/common/*"],
       "@specific-components/*": ["./src/components/specific/*"],

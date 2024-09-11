@@ -1,10 +1,10 @@
 @import 'styles.scss';
 
-main{
-    margin: 16px 8px;
-
-    h1{
-        margin-left: 24px;
-    }
-
+main {
+	.header {
+		gap: 16px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
 }
