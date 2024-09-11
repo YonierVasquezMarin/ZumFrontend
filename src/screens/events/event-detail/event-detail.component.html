@@ -1,3 +1,53 @@
 <main class="container">
 	<h1 class="title1">Nuevo evento</h1>
+
+	<form [formGroup]="eventForm" class="form">
+		<div class="form-section">
+			<label for="eventName">Nombre evento</label>
+			<input type="text" id="eventName" formControlName="eventName" />
+			<app-validation-message [control]="getControl('eventName')" />
+		</div>
+
+		<div class="form-section">
+			<label for="description">Descripción</label>
+			<textarea id="description" formControlName="description"></textarea>
+			<app-validation-message [control]="getControl('description')" />
+		</div>
+
+		<div class="form-section">
+			<label for="objective">Objetivo</label>
+			<textarea id="objective" formControlName="objective"></textarea>
+			<app-validation-message [control]="getControl('objective')" />
+		</div>
+
+		<div class="form-section-inline">
+			<div class="form-section">
+				<label for="startDate">Inicio evento</label>
+				<section class="inputs-inline">
+					<div class="form-section">
+						<input type="date" id="startDate" formControlName="startDate" />
+						<app-validation-message [control]="getControl('startDate')" />
+					</div>
+					<div class="form-section">
+						<input type="time" id="startTime" formControlName="startTime" />
+						<app-validation-message [control]="getControl('startTime')" />
+					</div>
+				</section>
+			</div>
+
+			<div class="form-section">
+				<label for="endDate">Fin evento</label>
+				<section class="inputs-inline">
+					<div class="form-section">
+						<input type="date" id="endDate" formControlName="endDate" />
+						<app-validation-message [control]="getControl('endDate')" />
+					</div>
+					<div class="form-section">
+						<input type="time" id="endTime" formControlName="endTime" />
+						<app-validation-message [control]="getControl('endTime')" />
+					</div>
+				</section>
+			</div>
+		</div>
+	</form>
 </main>
