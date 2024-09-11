@@ -1,4 +1,4 @@
-import { SlideChecker } from '@interfaces/slide-checker.interface'
+import { SlideSheet } from '@interfaces/slide-sheet.interface'
 import { Component } from '@angular/core'
 
 @Component({
@@ -8,7 +8,7 @@ import { Component } from '@angular/core'
 	templateUrl: './event-info.component.html',
 	styleUrl: './event-info.component.scss',
 })
-export class EventInfoComponent implements SlideChecker {
+export class EventInfoComponent implements SlideSheet {
 	title = 'Información principal'
 
 	checkSlide(): boolean {
