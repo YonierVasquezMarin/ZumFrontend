@@ -22,8 +22,9 @@ button {
     }
   
     &.disabled {
-      background-color: $gray1;
+      background-color: $gray2;
       color: $white;
+      opacity: 0.5;
       cursor: not-allowed;
   
       .icon {

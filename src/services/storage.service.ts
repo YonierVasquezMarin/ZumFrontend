@@ -1,14 +1,12 @@
 import { Injectable } from '@angular/core'
+import { timeout } from 'rxjs'
 
 @Injectable({
 	providedIn: 'root',
 })
 export class StorageService {
 	saveToken(token: string) {
-		const timeout = 1000
-		setInterval(() => {
 		sessionStorage.setItem('token', token)
-    }, timeout)
 	}
 
 	getToken() {
@@ -29,12 +27,10 @@ export class StorageService {
 		return userString
 	}
 
-	saveItem(key: string, value: any,) {
+	saveItem(key: string, value: any) {
 		var stringValue = JSON.stringify(value)
-		const timeout = 3000
-		setInterval(() => {
-			sessionStorage.setItem(key, stringValue)
-		}, timeout)
+		sessionStorage.setItem(key, stringValue)
+    timeout(1000)
 	}
 
 	getItem(key: string) {

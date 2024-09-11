@@ -36,7 +36,7 @@ export class UsersService {
 	}
 
 	logout() {
-		this.storageService.removeToken()
+		this.storageService.clear()
 		this.router.navigate(['/login'])
 	}
 }

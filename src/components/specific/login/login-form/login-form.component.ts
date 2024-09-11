@@ -16,11 +16,18 @@ import {
 	ReactiveFormsModule,
 	Validators,
 } from '@angular/forms'
+import { LoaderDirective } from '../../../../directives/loader.directive'
 
 @Component({
 	selector: 'app-login-form',
 	standalone: true,
-	imports: [CommonModule, ReactiveFormsModule, ButtonComponent, ValidationMessageComponent],
+	imports: [
+		CommonModule,
+		ReactiveFormsModule,
+		ButtonComponent,
+		ValidationMessageComponent,
+		LoaderDirective,
+	],
 	templateUrl: './login-form.component.html',
 	styleUrl: './login-form.component.scss',
 })

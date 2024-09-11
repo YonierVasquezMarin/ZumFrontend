@@ -8,11 +8,18 @@ import { HttpStatusCode } from '@angular/common/http'
 import { EventResponseDto } from '@dtos/events.dtos'
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { ButtonComponent } from '@common-components/button/button.component'
 
 @Component({
 	selector: 'app-events',
 	standalone: true,
-	imports: [CommonModule, EventListComponent, EmptyListMessageComponent, PaginationComponent],
+	imports: [
+		CommonModule,
+		EventListComponent,
+		EmptyListMessageComponent,
+		PaginationComponent,
+		ButtonComponent,
+	],
 	templateUrl: './events.component.html',
 	styleUrl: './events.component.scss',
 })
@@ -38,7 +45,7 @@ export class EventsComponent implements OnInit {
 
 	async getEvents() {
 		var response = await this.eventsService.getAllPaginated(this.filters)
-    if(response.statusCode !== HttpStatusCode.Ok) console.error(response.message)
+		if (response.statusCode !== HttpStatusCode.Ok) console.error(response.message)
 		this.events = response.data.data
 		this.totalPages = response.data.totalPages
 	}
