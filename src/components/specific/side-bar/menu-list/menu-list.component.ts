@@ -1,9 +1,9 @@
-import { MenuItemType } from '@type/menu-item.type'
-import { AfterViewInit, Component, OnInit } from '@angular/core'
 import { ButtonComponent } from '@common-components/button/button.component'
+import { AfterViewInit, Component, OnInit } from '@angular/core'
 import { NavigationEnd, Router } from '@angular/router'
-import { filter } from 'rxjs'
 import { UsersService } from '@services/users.service'
+import { MenuItemType } from '@type/menu-item.type'
+import { filter } from 'rxjs'
 
 @Component({
 	selector: 'app-menu-list',
@@ -13,6 +13,7 @@ import { UsersService } from '@services/users.service'
 	styleUrl: './menu-list.component.scss',
 })
 export class MenuListComponent implements OnInit, AfterViewInit {
+
 	constructor(
 		private router: Router,
 		private usersService: UsersService) {}
