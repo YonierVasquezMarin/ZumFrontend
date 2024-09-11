@@ -1,13 +1,14 @@
 import { EmptyListMessageComponent } from '@common-components/empty-list-message/empty-list-message.component'
 import { EventListComponent } from '@specific-components/events/event-list/event-list.component'
 import { PaginationComponent } from '@common-components/pagination/pagination.component'
-import { ButtonComponent } from '@common-components/button/button.component'
 import { PaginatedRequestDto } from '@dtos/paginated.dtos'
 import { EventsService } from '@services/events.service'
 import { ActivatedRoute, Router } from '@angular/router'
+import { HttpStatusCode } from '@angular/common/http'
 import { EventResponseDto } from '@dtos/events.dtos'
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
+import { ButtonComponent } from '@common-components/button/button.component'
 
 @Component({
 	selector: 'app-events',
@@ -42,11 +43,11 @@ export class EventsComponent implements OnInit {
 		this.getEvents()
 	}
 
-	getEvents() {
-		this.eventsService.getAllPaginated(this.filters).subscribe((response) => {
-			this.events = response.data.data
-			this.totalPages = response.data.totalPages
-		})
+	async getEvents() {
+		var response = await this.eventsService.getAllPaginated(this.filters)
+		if (response.statusCode !== HttpStatusCode.Ok) console.error(response.message)
+		this.events = response.data.data
+		this.totalPages = response.data.totalPages
 	}
 
 	eventListEmpty() {

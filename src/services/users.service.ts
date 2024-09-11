@@ -1,8 +1,8 @@
 import { environment } from '@environments/environment.development'
 import { HttpClient } from '@angular/common/http'
-import { UserLoginDTO } from '@dtos/users.dtos'
+import { UserDto, userLoggedDto, UserLoginDto } from '@dtos/users.dtos'
 import { Injectable } from '@angular/core'
-import { Observable, tap } from 'rxjs'
+import { firstValueFrom, Observable, tap } from 'rxjs'
 import { ResponseBase } from '@type/response-base'
 import { StorageService } from './storage.service'
 import { Router } from '@angular/router'
@@ -18,25 +18,25 @@ export class UsersService {
 		private router: Router,
 	) {}
 
-	login(data: UserLoginDTO): Observable<ResponseBase<string>> {
-		var user = { name: 'Luis Angel', role: 'Super Admin' }
-		return this.http.post<ResponseBase<string>>(`${this.url}/login`, data)
-		// .pipe(
-		// 	tap((response) => {
-				
-		// 		this.storageService.saveUser(user)
-		// 		// this.storageService.saveToken(response.data)
-		// 		// this.validToken().subscribe()
-		// 	}),
-		// )
+	login(data: UserLoginDto): Promise<ResponseBase<userLoggedDto>> {
+		var response = this.http.post<ResponseBase<userLoggedDto>>(`${this.url}/login`, data)
+		return firstValueFrom(response);
 	}
 
-	validToken(): Observable<ResponseBase<string>> {
-		return this.http.get<ResponseBase<string>>(`${this.url}/valid-token`)
+
+	getUserLogged(): UserDto{
+		const userString = this.storageService.getUser()
+		const user: UserDto = JSON.parse(userString)
+		return user
+	}
+
+	IsUserLogged(): boolean {
+		const token = this.storageService.getToken()
+		return !!token
 	}
 
 	logout() {
-		this.storageService.removeToken()
+		this.storageService.clear()
 		this.router.navigate(['/login'])
 	}
 }

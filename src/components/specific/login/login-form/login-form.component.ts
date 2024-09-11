@@ -1,10 +1,11 @@
+import { ValidationMessageComponent } from '@common-components/validation-message/validation-message.component'
 import { ButtonComponent } from '@common-components/button/button.component'
+import { userLoggedDto, UserLoginDto } from '@dtos/users.dtos'
 import { StorageService } from '@services/storage.service'
 import { UsersService } from '@services/users.service'
 import { HttpStatusCode } from '@angular/common/http'
 import { ResponseBase } from '@type/response-base'
 import { Component, OnInit } from '@angular/core'
-import { UserLoginDTO } from '@dtos/users.dtos'
 import { CommonModule } from '@angular/common'
 import { Router } from '@angular/router'
 import {
@@ -15,12 +16,18 @@ import {
 	ReactiveFormsModule,
 	Validators,
 } from '@angular/forms'
-import { ValidationMessageComponent } from '@common-components/validation-message/validation-message.component'
+import { LoaderDirective } from '../../../../directives/loader.directive'
 
 @Component({
 	selector: 'app-login-form',
 	standalone: true,
-	imports: [CommonModule, ReactiveFormsModule, ButtonComponent, ValidationMessageComponent],
+	imports: [
+		CommonModule,
+		ReactiveFormsModule,
+		ButtonComponent,
+		ValidationMessageComponent,
+		LoaderDirective,
+	],
 	templateUrl: './login-form.component.html',
 	styleUrl: './login-form.component.scss',
 })
@@ -30,8 +37,8 @@ export class LoginFormComponent implements OnInit {
 
 	constructor(
 		private usersService: UsersService,
-		private storageService: StorageService,
 		private formBuilder: FormBuilder,
+		private storageService: StorageService,
 		private router: Router,
 	) {}
 
@@ -46,23 +53,21 @@ export class LoginFormComponent implements OnInit {
 		})
 	}
 
-	login() {
+	async login() {
 		if (this.loginForm.invalid) {
 			this.loginForm.markAllAsTouched()
 			return
 		}
-		let credentials: UserLoginDTO = { ...this.loginForm.value }
-		this.usersService.login(credentials).subscribe({
-			next: (response) => this.manageResponseLogin(response),
-			error: (error) => this.manageErrorLogin(error),
-		})
+		let credentials: UserLoginDto = { ...this.loginForm.value }
+		var response = await this.usersService.login(credentials)
+		this.manageResponseLogin(response)
+		this.manageErrorLogin(response)
 	}
 
-	manageResponseLogin(response: ResponseBase<string>) {
-	
+	manageResponseLogin(response: ResponseBase<userLoggedDto>) {
 		if (response && response.statusCode === HttpStatusCode.Ok) {
-			this.storageService.saveToken(response.data)
-
+			this.storageService.saveToken(response.data.accessToken)
+			this.storageService.saveUser(response.data.user)
 			this.navegateToDashboard()
 		}
 	}

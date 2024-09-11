@@ -40,3 +40,13 @@ input[type='text'] :focus {
 .has-error input {
 	border-color: red;
 }
+
+.loader-animation {
+	animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+	to {
+		transform: rotate(360deg);
+	}
+}

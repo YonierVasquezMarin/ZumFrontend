@@ -5,7 +5,7 @@ import { UsersService } from '@services/users.service'
 import { HttpStatusCode } from '@angular/common/http'
 import { ResponseBase } from '@type/response-base'
 import { Component, OnInit } from '@angular/core'
-import { UserLoginDTO } from '@dtos/users.dtos'
+import { UserLoginDto } from '@dtos/users.dtos'
 import { CommonModule } from '@angular/common'
 import {
 	FormBuilder,
