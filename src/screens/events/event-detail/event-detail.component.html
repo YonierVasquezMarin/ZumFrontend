@@ -49,5 +49,46 @@
 				</section>
 			</div>
 		</div>
+
+		<div class="form-section-inline">
+			<div class="form-section">
+				<label for="country">Pais</label>
+				<section class="inputs-inline">
+					<div class="form-section">
+						<select id="country" formControlName="country" (change)="getDepartments()">
+							<option value="">Selecciona un país</option>
+							<option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+						</select>
+						<app-validation-message [control]="getControl('country')" />
+					</div>
+				</section>
+			</div>
+
+			<div class="form-section">
+				<label for="department">Departamento</label>
+				<section class="inputs-inline">
+					<div class="form-section">
+						<select id="department" formControlName="department" (change)="getCities()">
+							<option value="">Selecciona un departamento</option>
+							<option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+						</select>
+						<app-validation-message [control]="getControl('department')" />
+					</div>
+				</section>
+			</div>
+
+			<div class="form-section">
+				<label for="city">Ciudad</label>
+				<section class="inputs-inline">
+					<div class="form-section">
+						<select id="city" formControlName="city">
+							<option value="">Selecciona una ciudad</option>
+							<option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+						</select>
+						<app-validation-message [control]="getControl('city')" />
+					</div>
+				</section>
+			</div>
+		</div>
 	</form>
 </main>

@@ -11,6 +11,7 @@ import {
 } from '@angular/forms'
 import { CommonModule } from '@angular/common'
 import { ButtonComponent } from '@common-components/button/button.component'
+import { LocationService } from '@services/location.service'
 
 @Component({
 	selector: 'app-event-detail',
@@ -20,12 +21,17 @@ import { ButtonComponent } from '@common-components/button/button.component'
 	styleUrl: './event-detail.component.scss',
 })
 export class EventDetailComponent implements OnInit {
-	constructor(private formBuilder: FormBuilder) {}
+	constructor(private formBuilder: FormBuilder, private location: LocationService) {}
 
 	eventForm!: FormGroup
+	countries!: string[]
+	departments!: string[]
+	cities!: string[]
 
 	ngOnInit(): void {
 		this.buildForm()
+		this.getCountries()
+		this.setDefaultCountry()
 	}
 
 	buildForm() {
@@ -45,12 +51,32 @@ export class EventDetailComponent implements OnInit {
 		})
 	}
 
+	async getCountries() {
+		this.countries = await this.location.getCountries()
+	}
+
+	setDefaultCountry() {
+		this.getControl('country').setValue('Colombia')
+		this.getDepartments()
+	}
+
+	async getDepartments() {
+		const country = this.getControl('country').value
+		this.departments = await this.location.getDepartments(country)
+	}
+
+	async getCities() {
+		const country = this.getControl('country').value
+		const department = this.getControl('department').value
+		this.cities = await this.location.getCities(country, department)
+	}
+
 	saveEvent() {
 		if (this.eventForm.invalid) {
 			this.eventForm.markAllAsTouched()
 			return
 		}
-		let event: CreateEventDto = { ...this.eventForm.value }
+		// let event: CreateEventDto = { ...this.eventForm.value }
 		// this.eventsService.createEvent(event).subscribe({
 		// 	next: (response) => this.manageResponseCreateEvent(response),
 		// 	error: (error) => this.manageErrorCreateEvent(error),
