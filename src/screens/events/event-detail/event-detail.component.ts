@@ -12,6 +12,8 @@ import {
 import { CommonModule } from '@angular/common'
 import { ButtonComponent } from '@common-components/button/button.component'
 import { LocationService } from '@services/location.service'
+import { ContractService } from '@services/contract.service'
+import { BasicContractDto } from '@dtos/contract.dtos'
 
 @Component({
 	selector: 'app-event-detail',
@@ -21,17 +23,23 @@ import { LocationService } from '@services/location.service'
 	styleUrl: './event-detail.component.scss',
 })
 export class EventDetailComponent implements OnInit {
-	constructor(private formBuilder: FormBuilder, private location: LocationService) {}
+	constructor(
+		private formBuilder: FormBuilder,
+		private location: LocationService,
+		private contractService: ContractService,
+	) {}
 
 	eventForm!: FormGroup
 	countries!: string[]
 	departments!: string[]
 	cities!: string[]
+	contracts!: BasicContractDto[]
 
 	ngOnInit(): void {
 		this.buildForm()
 		this.getCountries()
 		this.setDefaultCountry()
+		this.getContracts()
 	}
 
 	buildForm() {
@@ -69,6 +77,10 @@ export class EventDetailComponent implements OnInit {
 		const country = this.getControl('country').value
 		const department = this.getControl('department').value
 		this.cities = await this.location.getCities(country, department)
+	}
+
+	async getContracts() {
+		this.contracts = await this.contractService.getContracts()
 	}
 
 	saveEvent() {

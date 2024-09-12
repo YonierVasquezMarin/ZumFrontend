@@ -94,11 +94,13 @@
 		<div class="form-section-inline">
 			<div class="form-section">
 				<label for="contractId">Contrato</label>
-				<select id="contractId" formControlName="country" (change)="getDepartments()">
-					<option value="">Selecciona un país</option>
-					<option *ngFor="let country of countries" [value]="country">{{ country }}</option>
+				<select id="contractId" formControlName="contractId">
+					<option value="">Selecciona un contrato</option>
+					<option *ngFor="let contract of contracts" [value]="contract.contractId">
+						{{ contract.contractName }}
+					</option>
 				</select>
-				<app-validation-message [control]="getControl('country')" />
+				<app-validation-message [control]="getControl('contractId')" />
 			</div>
 
 			<div class="form-section">
