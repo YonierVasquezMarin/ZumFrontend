@@ -37,8 +37,8 @@ export class LocationService {
 			)
 			const departments = departmentsData.states.map((state: any) => state.name)
 			const updatedDepartments = departments.map((department: any) => {
-				if (department.includes('Department')) {
-					return department.replace('Department', '')
+				if (department.includes(' Department')) {
+					return department.replace(' Department', '')
 				}
 				return department
 			})
