@@ -1,0 +1,27 @@
+input,
+textarea,
+select {
+	padding: 8px;
+	outline: none;
+	font-size: 16px;
+	border-radius: 4px;
+	box-sizing: border-box;
+	border-color: #4c81d6;
+	border: 1px solid #858585;
+	background-color: #e9f0fd;
+	transition: border-color 0.3s;
+}
+
+input[type='time'],
+input[type='date'] {
+	width: 158px;
+}
+
+select {
+	width: 332px;
+}
+
+textarea {
+	resize: none;
+	height: 100px;
+}
