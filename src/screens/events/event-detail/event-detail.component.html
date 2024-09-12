@@ -109,5 +109,14 @@
 				<app-validation-message [control]="getControl('assignedBudget')" />
 			</div>
 		</div>
+
+		<div>
+			<app-button
+				(click)="saveEvent()"
+				[text]="'Crear'"
+				[expand]="false"
+				[leftIcon]="'plus'"
+			/>
+		</div>
 	</form>
 </main>

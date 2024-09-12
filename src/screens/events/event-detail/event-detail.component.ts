@@ -1,6 +1,13 @@
 import { ValidationMessageComponent } from '@common-components/validation-message/validation-message.component'
+import { ButtonComponent } from '@common-components/button/button.component'
+import { LocationService } from '@services/location.service'
+import { ContractService } from '@services/contract.service'
+import { EventsService } from '@services/events.service'
+import { BasicContractDto } from '@dtos/contract.dtos'
 import { CreateEventDto } from '@dtos/events.dtos'
+import { LogService } from '@services/log.service'
 import { Component, OnInit } from '@angular/core'
+import { CommonModule } from '@angular/common'
 import {
 	AbstractControl,
 	FormBuilder,
@@ -9,11 +16,6 @@ import {
 	ReactiveFormsModule,
 	Validators,
 } from '@angular/forms'
-import { CommonModule } from '@angular/common'
-import { ButtonComponent } from '@common-components/button/button.component'
-import { LocationService } from '@services/location.service'
-import { ContractService } from '@services/contract.service'
-import { BasicContractDto } from '@dtos/contract.dtos'
 
 @Component({
 	selector: 'app-event-detail',
@@ -24,8 +26,10 @@ import { BasicContractDto } from '@dtos/contract.dtos'
 })
 export class EventDetailComponent implements OnInit {
 	constructor(
+		private log: LogService,
 		private formBuilder: FormBuilder,
 		private location: LocationService,
+		private eventsService: EventsService,
 		private contractService: ContractService,
 	) {}
 
@@ -84,15 +88,16 @@ export class EventDetailComponent implements OnInit {
 	}
 
 	saveEvent() {
-		if (this.eventForm.invalid) {
-			this.eventForm.markAllAsTouched()
-			return
+		try {
+			if (this.eventForm.invalid) {
+				this.eventForm.markAllAsTouched()
+				return
+			}
+			const event: CreateEventDto = this.eventForm.value
+			this.eventsService.createEvent(event)
+		} catch (error) {
+			this.log.logError(error)
 		}
-		// let event: CreateEventDto = { ...this.eventForm.value }
-		// this.eventsService.createEvent(event).subscribe({
-		// 	next: (response) => this.manageResponseCreateEvent(response),
-		// 	error: (error) => this.manageErrorCreateEvent(error),
-		// })
 	}
 
 	getControl(name: string) {
