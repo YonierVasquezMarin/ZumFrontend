@@ -1,5 +1,6 @@
 input,
-textarea {
+textarea,
+select {
 	padding: 8px;
 	outline: none;
 	font-size: 16px;
@@ -14,6 +15,10 @@ textarea {
 input[type='time'],
 input[type='date'] {
 	width: 158px;
+}
+
+select {
+	width: 332px;
 }
 
 textarea {
