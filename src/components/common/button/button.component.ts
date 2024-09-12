@@ -23,10 +23,12 @@ export class ButtonComponent {
 	@Input() btnActive?: boolean
 	@Input() align: 'left' | 'center' | 'right' = 'center'
 	@Input() type: 'default' | 'disabled' | 'outline' = 'default'
+	@Input() expand!: boolean
 
 	get buttonClasses() {
 		let classes = this.buttonClass
 		if (this.btnActive) classes += ' button-active'
+		if (this.expand) classes += ' button-expanded'
 		return classes
 	}
 }

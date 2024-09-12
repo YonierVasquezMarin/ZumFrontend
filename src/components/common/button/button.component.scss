@@ -14,7 +14,6 @@ button {
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box; 
     border-radius: $space-8;
-    width: -webkit-fill-available;
   
     &.default {
       background-color: $primary-color;
@@ -78,6 +77,10 @@ button {
 
 .button-active {
   background-color: darken($primary-color, 10%) !important;
+}
+
+.button-expanded {
+  width: 100%;
 }
 
 @media screen and (min-width: 1000px) {
