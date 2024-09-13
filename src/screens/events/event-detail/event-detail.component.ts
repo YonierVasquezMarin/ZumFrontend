@@ -1,10 +1,10 @@
 import { ValidationMessageComponent } from '@common-components/validation-message/validation-message.component'
 import { ButtonComponent } from '@common-components/button/button.component'
+import { CreateEventDto, EventResponseDto } from '@dtos/events.dtos'
 import { LocationService } from '@services/location.service'
 import { ContractService } from '@services/contract.service'
 import { EventsService } from '@services/events.service'
 import { BasicContractDto } from '@dtos/contract.dtos'
-import { CreateEventDto } from '@dtos/events.dtos'
 import { LogService } from '@services/log.service'
 import { Component, OnInit } from '@angular/core'
 import { CommonModule } from '@angular/common'
@@ -16,6 +16,7 @@ import {
 	ReactiveFormsModule,
 	Validators,
 } from '@angular/forms'
+import { ActivatedRoute } from '@angular/router'
 
 @Component({
 	selector: 'app-event-detail',
@@ -27,6 +28,7 @@ import {
 export class EventDetailComponent implements OnInit {
 	constructor(
 		private log: LogService,
+		private params: ActivatedRoute,
 		private formBuilder: FormBuilder,
 		private location: LocationService,
 		private eventsService: EventsService,
@@ -38,12 +40,14 @@ export class EventDetailComponent implements OnInit {
 	departments!: string[]
 	cities!: string[]
 	contracts!: BasicContractDto[]
+	isCreationMode = true
 
 	ngOnInit(): void {
 		this.buildForm()
 		this.getCountries()
 		this.setDefaultCountry()
 		this.getContracts()
+		this.loadEventIfIdWasPassed()
 	}
 
 	buildForm() {
@@ -87,6 +91,18 @@ export class EventDetailComponent implements OnInit {
 		this.contracts = await this.contractService.getContracts()
 	}
 
+	async loadEventIfIdWasPassed() {
+		const id = this.params.snapshot.paramMap.get('id')
+		if (id) {
+			this.isCreationMode = false
+			const event = await this.eventsService.getEventById(id)
+			event.startDate = this.removeHourFromFullDate(event.startDate)
+			event.endDate = this.removeHourFromFullDate(event.endDate)
+			this.eventForm.patchValue(event)
+			this.getCities()
+		}
+	}
+
 	async saveEvent() {
 		try {
 			if (this.eventForm.invalid) {
@@ -113,6 +129,25 @@ export class EventDetailComponent implements OnInit {
 		const endTimeParts = endTime.split(':')
 		const endTimeWithSeconds = `${endTimeParts[0]}:${endTimeParts[1]}:00`
 		this.getControl('endTime').setValue(endTimeWithSeconds)
+	}
+
+	removeHourToStartAndEndDate(event: EventResponseDto) {
+		const startDateWithHour = this.getControl('startDate').value
+		const startDateParts = startDateWithHour.split(':')
+		const startDate = startDateParts[0]
+		this.getControl('startDate').setValue(startDate)
+
+		const endDateWithHour = this.getControl('endDate').value
+		const endDateParts = endDateWithHour.split(':')
+		const endDate = endDateParts[0]
+		this.getControl('startDate').setValue(endDate)
+	}
+
+	removeHourFromFullDate(date: any) {
+		const dateWithHour = date
+		const dateParts = dateWithHour.split('T')
+		const onlyDate = dateParts[0]
+		return onlyDate
 	}
 
 	getControl(name: string) {

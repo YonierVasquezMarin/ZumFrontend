@@ -1,5 +1,5 @@
 <main class="container">
-	<h1 class="title1">Nuevo evento</h1>
+	<h1 class="title1">{{ isCreationMode ? 'Nuevo evento' : 'Detalle evento' }}</h1>
 
 	<form [formGroup]="eventForm" class="form">
 		<div class="form-section">
@@ -110,7 +110,7 @@
 			</div>
 		</div>
 
-		<div>
+		<div *ngIf="isCreationMode">
 			<app-button (click)="saveEvent()" [text]="'Crear'" [expand]="false" [leftIcon]="'plus'" />
 		</div>
 	</form>
