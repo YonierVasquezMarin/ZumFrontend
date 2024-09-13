@@ -13,10 +13,7 @@ import { filter } from 'rxjs'
 	styleUrl: './menu-list.component.scss',
 })
 export class MenuListComponent implements OnInit, AfterViewInit {
-
-	constructor(
-		private router: Router,
-		private usersService: UsersService) {}
+	constructor(private router: Router, private usersService: UsersService) {}
 
 	menuItems: MenuItemType[] = [
 		{
@@ -85,6 +82,10 @@ export class MenuListComponent implements OnInit, AfterViewInit {
 		this.menuItems.forEach((item) => {
 			item.active = currentRoute.includes(item.route)
 		})
+	}
+
+	navigate(route: string) {
+		this.router.navigate(['/dashboard/' + route])
 	}
 
 	logout() {
