@@ -1,5 +1,6 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BadgeComponent } from '@common-components/badge/badge.component';
 import { ButtonComponent } from '@common-components/button/button.component';
 import { EventResponseDto } from '@dtos/events.dtos';
@@ -15,7 +16,7 @@ import { StatusBadgeType } from '@type/status-badge.type';
 export class EventCardHeaderComponent {
  @Input({required: true}) event!: EventResponseDto;
 
-
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
   statusColorByStatus: { [key: number]: StatusBadgeType} = {
     1: 'primary',
@@ -48,6 +49,10 @@ export class EventCardHeaderComponent {
 
   get numberEvent(){
     return `N° ${this.event.eventNumber}`;
+  }
+
+  openEventDetail() {
+    this.router.navigate([`edit-event/${this.event.eventId}`], { relativeTo: this.route });
   }
 
 }

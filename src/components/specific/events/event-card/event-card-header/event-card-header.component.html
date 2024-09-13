@@ -5,5 +5,5 @@
         <app-badge [text]="event.companyAcronym" icon="fa-solid fa-building" type="info" />
         <app-badge [text]="event.operatorAcronym" icon="fa-solid fa-user-tie" type="info" />
     </div>
-    <app-button tooltip="Opciones" leftIcon="sliders" />
+    <app-button tooltip="Opciones" leftIcon="sliders" (click)="openEventDetail()" />
 </header>

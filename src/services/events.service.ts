@@ -27,4 +27,11 @@ export class EventsService {
 		let response = this.http.post<ResponseBase<EventResponseDto>>(`${this.url}/create-event`, event)
 		return firstValueFrom(response)
 	}
+
+	async getEventById(id: string): Promise<EventResponseDto> {
+		const request = this.http.get<ResponseBase<EventResponseDto>>(`${this.url}/get-event/${id}`)
+		const serverResponse = await firstValueFrom(request)
+		const event = serverResponse.data
+		return event
+	}
 }
