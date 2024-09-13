@@ -97,7 +97,7 @@
 				<select id="contractId" formControlName="contractId">
 					<option value="">Selecciona un contrato</option>
 					<option *ngFor="let contract of contracts" [value]="contract.contractId">
-						{{ contract.contractName }}
+						{{ contract.contractName }} - ${{ contract.budgetAvailable }}
 					</option>
 				</select>
 				<app-validation-message [control]="getControl('contractId')" />
@@ -111,12 +111,7 @@
 		</div>
 
 		<div>
-			<app-button
-				(click)="saveEvent()"
-				[text]="'Crear'"
-				[expand]="false"
-				[leftIcon]="'plus'"
-			/>
+			<app-button (click)="saveEvent()" [text]="'Crear'" [expand]="false" [leftIcon]="'plus'" />
 		</div>
 	</form>
 </main>

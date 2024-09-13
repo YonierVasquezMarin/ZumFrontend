@@ -87,17 +87,32 @@ export class EventDetailComponent implements OnInit {
 		this.contracts = await this.contractService.getContracts()
 	}
 
-	saveEvent() {
+	async saveEvent() {
 		try {
 			if (this.eventForm.invalid) {
 				this.eventForm.markAllAsTouched()
 				return
 			}
+			this.setSecondsToStartAndEndTimes()
 			const event: CreateEventDto = this.eventForm.value
-			this.eventsService.createEvent(event)
+			await this.eventsService.createEvent(event)
+			alert('Evento creado correctamente')
 		} catch (error) {
 			this.log.logError(error)
+			alert('Error al crear el evento. Por favor revisa que el presupuesto no exceda el del contrato.')
 		}
+	}
+
+	setSecondsToStartAndEndTimes() {
+		const startTime = this.getControl('startTime').value
+		const startTimeParts = startTime.split(':')
+		const startTimeWithSeconds = `${startTimeParts[0]}:${startTimeParts[1]}:00`
+		this.getControl('startTime').setValue(startTimeWithSeconds)
+
+		const endTime = this.getControl('endTime').value
+		const endTimeParts = endTime.split(':')
+		const endTimeWithSeconds = `${endTimeParts[0]}:${endTimeParts[1]}:00`
+		this.getControl('endTime').setValue(endTimeWithSeconds)
 	}
 
 	getControl(name: string) {
