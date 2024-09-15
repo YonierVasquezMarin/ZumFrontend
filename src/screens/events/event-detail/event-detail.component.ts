@@ -17,11 +17,12 @@ import {
 	Validators,
 } from '@angular/forms'
 import { ActivatedRoute } from '@angular/router'
+import { LoaderDirective } from '../../../directives/loader.directive'
 
 @Component({
 	selector: 'app-event-detail',
 	standalone: true,
-	imports: [CommonModule, ReactiveFormsModule, ButtonComponent, ValidationMessageComponent],
+	imports: [CommonModule, ReactiveFormsModule, ButtonComponent, ValidationMessageComponent, LoaderDirective],
 	templateUrl: './event-detail.component.html',
 	styleUrl: './event-detail.component.scss',
 })

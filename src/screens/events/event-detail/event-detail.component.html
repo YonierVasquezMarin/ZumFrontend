@@ -111,7 +111,7 @@
 		</div>
 
 		<div *ngIf="isCreationMode">
-			<app-button (click)="saveEvent()" [text]="'Crear'" [expand]="false" [leftIcon]="'plus'" />
+			<app-button (click)="saveEvent()" [text]="'Crear'" [expand]="false" [leftIcon]="'plus'" appLoader/>
 		</div>
 	</form>
 </main>

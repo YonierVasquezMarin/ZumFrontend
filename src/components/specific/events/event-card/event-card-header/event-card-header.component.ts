@@ -30,7 +30,7 @@ export class EventCardHeaderComponent {
 
   statusNameByStatus: { [key: number]: string } = {
     1: 'En cotización',
-    2: 'CotizadO',
+    2: 'Cotizado',
     3: 'Aprobado',
     4: 'Rechazado',
     5: 'Cancelado',
